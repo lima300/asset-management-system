@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import type { TreeNodeProps } from "./types";
 import "./Tree.css";
+import type { TreeNode } from "../../types";
+
+export interface TreeNodeProps {
+  node: TreeNode;
+  level: number;
+  onNodeClick?: (node: TreeNode) => void;
+  onNodeToggle?: (node: TreeNode, isExpanded: boolean) => void;
+  indentSize: number;
+}
 
 const TreeNodeComponent: React.FC<TreeNodeProps> = ({
   node,
@@ -42,7 +50,7 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
           </button>
         )}
         {!hasChildren && <div className="tree-spacer" />}
-        <span className="tree-label">{node.label}</span>
+        <span className="tree-label">{node.name}</span>
       </div>
 
       {hasChildren && isExpanded && (

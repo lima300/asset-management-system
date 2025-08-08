@@ -1,5 +1,5 @@
+import { Company } from "../pages/Company";
 import Home from "../pages/Home";
-import Companies from "../pages/Companies";
 import NotFound from "../pages/NotFound";
 
 export const routes = [
@@ -9,7 +9,7 @@ export const routes = [
   },
   {
     path: "companies/:companyId",
-    element: <Companies />,
+    element: <Company />,
   },
   {
     path: "*",

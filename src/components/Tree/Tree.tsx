@@ -1,17 +1,23 @@
 import React from "react";
-import type { TreeProps } from "./types";
 import TreeNodeComponent from "./TreeNode";
 import "./Tree.css";
+import type { TreeNode } from "../../types";
 
-const Tree: React.FC<TreeProps> = ({
+export interface TreeProps {
+  data: TreeNode[];
+  onNodeToggle: (node: TreeNode, isExpanded: boolean) => void;
+  onNodeClick: (node: TreeNode) => void;
+  indentSize?: number;
+}
+
+export const Tree: React.FC<TreeProps> = ({
   data,
-  onNodeClick,
   onNodeToggle,
-  className = "",
+  onNodeClick,
   indentSize = 20,
 }) => {
   return (
-    <div className={`tree-container ${className}`}>
+    <div className={`tree-container`}>
       {data.map((node) => (
         <TreeNodeComponent
           key={node.id}
@@ -25,5 +31,3 @@ const Tree: React.FC<TreeProps> = ({
     </div>
   );
 };
-
-export default Tree;

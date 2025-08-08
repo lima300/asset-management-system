@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { apiService } from "../services/api";
 
-export const useCompanyData = (companyId: string | null) => {
+export const useCompanyData = (companyId?: string) => {
   const locationsQuery = useQuery({
     queryKey: ["locations", companyId],
     queryFn: () => apiService.getLocations(companyId!),
