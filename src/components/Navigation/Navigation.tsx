@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import "./Navigation.css";
-import logo from "../assets/tractianLogo.png";
-import { useCompanies } from "../hooks/useCompanies";
-import gold from "../assets/gold.svg";
+import logo from "../../assets/tractianLogo.png";
+import { useCompanies } from "../../hooks/useCompanies";
+import gold from "../../assets/gold.svg";
 
 function Navigation() {
   const { companyId } = useParams();

@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useCompanyData } from "../hooks/useCompanyData";
-import type { TreeNode } from "../types";
-import { Tree } from "../components/Tree/Tree";
 import { buildTree } from "../utils/treeBuilder";
 import { useMemo } from "react";
+import { TreeContainer } from "../components/TreeContainer/TreeContainer";
+import "./Company.css";
 
 export const Company = () => {
   const { companyId } = useParams();
@@ -15,14 +15,12 @@ export const Company = () => {
   }, [companyId, isLoading, locations, assets]);
 
   return (
-    <div>
-      <Tree
-        data={treeData}
-        onNodeClick={(node: TreeNode) => console.log("Clicked:", node.name)}
-        onNodeToggle={(node: TreeNode, isExpanded: boolean) =>
-          console.log("Toggled:", node.name, isExpanded)
-        }
-      />
+    <div className="company-page">
+      <div>ATIVOS</div>
+      <div className="company-page-body">
+        <TreeContainer treeData={treeData} />
+        <div>oi</div>
+      </div>
     </div>
   );
 };

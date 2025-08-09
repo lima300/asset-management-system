@@ -17,7 +17,7 @@ export const Tree: React.FC<TreeProps> = ({
   indentSize = 20,
 }) => {
   return (
-    <div className={`tree-container`}>
+    <div className={`tree`}>
       {data.map((node) => (
         <TreeNodeComponent
           key={node.id}

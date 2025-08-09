@@ -1,0 +1,20 @@
+.serach-container {
+  display: flex;
+  border-bottom: 1px solid #d8dfe6;
+  height: 3rem;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+}
+
+input {
+  flex: 1;
+  border: transparent;
+  font-size: 14px;
+  line-height: 21px;
+  padding-left: 1rem;
+}

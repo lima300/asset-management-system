@@ -1,0 +1,13 @@
+.company-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.company-page-body {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+}
