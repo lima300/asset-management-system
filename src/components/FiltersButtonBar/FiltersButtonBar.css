@@ -1,0 +1,18 @@
+.filters-button-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.filters-button-bar-item {
+  background-color: white;
+  border: 1px solid #d8dfe6;
+  color: #77818c;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.active {
+  background-color: #2188ff;
+  color: white;
+}
