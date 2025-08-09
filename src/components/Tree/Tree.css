@@ -20,6 +20,7 @@
   border-radius: 4px;
   transition: background-color 0.2s ease;
   user-select: none;
+  justify-content: flex-start;
 }
 
 .tree-node-content:hover {
@@ -69,11 +70,17 @@
   margin-right: 8px;
 }
 
+.tree-node-icon {
+  margin-right: 4px;
+}
+
 .tree-label {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: start;
+  align-items: center;
 }
 
 .tree-children {

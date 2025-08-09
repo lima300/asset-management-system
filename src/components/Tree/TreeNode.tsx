@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./Tree.css";
 import type { TreeNode } from "../../types";
+import mapPin from "../../assets/goLocation.svg";
+import asset from "../../assets/asset.svg";
+import component from "../../assets/component.svg";
 
 export interface TreeNodeProps {
   node: TreeNode;
@@ -33,6 +36,28 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
     onNodeClick?.(node);
   };
 
+  const getNodeItemIcon = useCallback(() => {
+    let iconSrc;
+    switch (node.type) {
+      case "location": {
+        iconSrc = mapPin;
+        break;
+      }
+      case "asset": {
+        iconSrc = asset;
+        break;
+      }
+      case "component": {
+        iconSrc = component;
+        break;
+      }
+      default: {
+        iconSrc = "";
+      }
+    }
+    return <img className="tree-node-icon" src={iconSrc} />;
+  }, [node.type]);
+
   return (
     <div className="tree-node">
       <div
@@ -49,7 +74,8 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
             <span className="toggle-icon">{isExpanded ? "▼" : "▶"}</span>
           </button>
         )}
-        {!hasChildren && <div className="tree-spacer" />}
+        {!hasChildren && node.parentId && <div className="tree-spacer"></div>}
+        {getNodeItemIcon()}
         <span className="tree-label">{node.name}</span>
       </div>
 

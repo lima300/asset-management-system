@@ -49,7 +49,23 @@ export const buildTree = (
     }
   });
 
-  return rootNodes;
+  // Sort function to put nodes with children first, then single nodes
+  const sortTreeNodes = (nodes: TreeNode[]): TreeNode[] => {
+    return nodes
+      .map((node) => ({
+        ...node,
+        children: sortTreeNodes(node.children), // Recursively sort children
+      }))
+      .sort((a, b) => {
+        // Nodes with children come first (desc order by children count)
+        if (a.children.length > 0 && b.children.length === 0) return -1;
+        if (a.children.length === 0 && b.children.length > 0) return 1;
+        // If both have children or both are leaf nodes, sort alphabetically
+        return a.name.localeCompare(b.name);
+      });
+  };
+
+  return sortTreeNodes(rootNodes);
 };
 
 export const filterTree = (
