@@ -1,4 +1,4 @@
-# Tractian Challenge - Asset Management System
+# Asset Management System
 
 A modern React-based asset management system built for the Tractian challenge. This application provides an intuitive interface for visualizing and managing company assets, locations, and components in a hierarchical tree structure.
 
