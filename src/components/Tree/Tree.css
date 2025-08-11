@@ -5,6 +5,9 @@
   font-size: 14px;
   line-height: 1.5;
   color: #333;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .tree-node {
@@ -75,6 +78,7 @@
 }
 
 .tree-label {
+  display: flex;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -105,32 +109,27 @@
 }
 
 /* Custom scrollbar for long trees */
-.tree-container {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
-.tree-container::-webkit-scrollbar {
+.tree::-webkit-scrollbar {
   width: 6px;
 }
 
-.tree-container::-webkit-scrollbar-track {
+.tree::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 3px;
 }
 
-.tree-container::-webkit-scrollbar-thumb {
+.tree::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 3px;
 }
 
-.tree-container::-webkit-scrollbar-thumb:hover {
+.tree::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-  .tree-container {
+  .tree {
     color: #e0e0e0;
   }
 

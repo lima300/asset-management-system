@@ -4,7 +4,7 @@ import logo from "../../assets/tractianLogo.png";
 import { useCompanies } from "../../hooks/useCompanies";
 import gold from "../../assets/gold.svg";
 
-function Navigation() {
+export const Navigation: React.FC = () => {
   const { companyId } = useParams();
   const { data: companies, isLoading: companiesLoading } = useCompanies();
 
@@ -38,6 +38,4 @@ function Navigation() {
       </div>
     </nav>
   );
-}
-
-export default Navigation;
+};

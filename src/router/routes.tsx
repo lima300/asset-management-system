@@ -1,11 +1,10 @@
 import { Company } from "../pages/Company";
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
+import { NotFound } from "../pages/NotFound";
 
 export const routes = [
   {
     index: true,
-    element: <Home />,
+    element: <Company />,
   },
   {
     path: "companies/:companyId",

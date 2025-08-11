@@ -4,6 +4,7 @@ import type { TreeNode } from "../../types";
 import mapPin from "../../assets/goLocation.svg";
 import asset from "../../assets/asset.svg";
 import component from "../../assets/component.svg";
+import { getSensorStatusIcon, getSensorTypeIcon } from "../../utils/nodeIcons";
 
 export interface TreeNodeProps {
   node: TreeNode;
@@ -13,7 +14,7 @@ export interface TreeNodeProps {
   indentSize: number;
 }
 
-const TreeNodeComponent: React.FC<TreeNodeProps> = ({
+export const TreeNodeComponent: React.FC<TreeNodeProps> = ({
   node,
   level,
   onNodeClick,
@@ -52,7 +53,7 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
         break;
       }
       default: {
-        iconSrc = "";
+        return;
       }
     }
     return <img className="tree-node-icon" src={iconSrc} />;
@@ -76,7 +77,10 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
         )}
         {!hasChildren && node.parentId && <div className="tree-spacer"></div>}
         {getNodeItemIcon()}
-        <span className="tree-label">{node.name}</span>
+        <span className="tree-label">
+          {node.name} {getSensorTypeIcon(node.sensorType)}
+          {getSensorStatusIcon(node.status)}
+        </span>
       </div>
 
       {hasChildren && isExpanded && (
@@ -96,5 +100,3 @@ const TreeNodeComponent: React.FC<TreeNodeProps> = ({
     </div>
   );
 };
-
-export default TreeNodeComponent;
