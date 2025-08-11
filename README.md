@@ -101,9 +101,7 @@ src/
 
 ## 🎥 Demo
 
-<!-- TODO: Add video demo here -->
-
-_Video demonstration will be added here showing the application in action._
+https://github.com/user-attachments/assets/8d0149de-7650-43aa-8d56-f9169376d613
 
 ## 🔮 Future Improvements
 
